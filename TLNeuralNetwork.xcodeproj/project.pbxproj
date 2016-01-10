@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		E2B24DF01C38C42800AAD090 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B24DEF1C38C42800AAD090 /* AppDelegate.swift */; };
-		E2B24DF21C38C42800AAD090 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B24DF11C38C42800AAD090 /* ViewController.swift */; };
 		E2B24DF51C38C42800AAD090 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2B24DF31C38C42800AAD090 /* Main.storyboard */; };
 		E2B24DF71C38C42800AAD090 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2B24DF61C38C42800AAD090 /* Assets.xcassets */; };
 		E2B24DFA1C38C42900AAD090 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2B24DF81C38C42900AAD090 /* LaunchScreen.storyboard */; };
+		E2B24E041C38C43E00AAD090 /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B24E011C38C43E00AAD090 /* InitialVC.swift */; };
+		E2B24E051C38C43E00AAD090 /* TLNeuralNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B24E021C38C43E00AAD090 /* TLNeuralNetwork.swift */; };
+		E2B24E061C38C43E00AAD090 /* Neuron.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B24E031C38C43E00AAD090 /* Neuron.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E2B24DEC1C38C42800AAD090 /* TLNeuralNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLNeuralNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B24DEF1C38C42800AAD090 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E2B24DF11C38C42800AAD090 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E2B24DF41C38C42800AAD090 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2B24DF61C38C42800AAD090 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2B24DF91C38C42900AAD090 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2B24DFB1C38C42900AAD090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2B24E011C38C43E00AAD090 /* InitialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitialVC.swift; path = ../InitialVC.swift; sourceTree = "<group>"; };
+		E2B24E021C38C43E00AAD090 /* TLNeuralNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TLNeuralNetwork.swift; path = ../TLNeuralNetwork.swift; sourceTree = "<group>"; };
+		E2B24E031C38C43E00AAD090 /* Neuron.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Neuron.swift; path = ../Neuron.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +58,10 @@
 		E2B24DEE1C38C42800AAD090 /* TLNeuralNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				E2B24E011C38C43E00AAD090 /* InitialVC.swift */,
+				E2B24E021C38C43E00AAD090 /* TLNeuralNetwork.swift */,
+				E2B24E031C38C43E00AAD090 /* Neuron.swift */,
 				E2B24DEF1C38C42800AAD090 /* AppDelegate.swift */,
-				E2B24DF11C38C42800AAD090 /* ViewController.swift */,
 				E2B24DF31C38C42800AAD090 /* Main.storyboard */,
 				E2B24DF61C38C42800AAD090 /* Assets.xcassets */,
 				E2B24DF81C38C42900AAD090 /* LaunchScreen.storyboard */,
@@ -135,8 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2B24DF21C38C42800AAD090 /* ViewController.swift in Sources */,
+				E2B24E041C38C43E00AAD090 /* InitialVC.swift in Sources */,
 				E2B24DF01C38C42800AAD090 /* AppDelegate.swift in Sources */,
+				E2B24E051C38C43E00AAD090 /* TLNeuralNetwork.swift in Sources */,
+				E2B24E061C38C43E00AAD090 /* Neuron.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
