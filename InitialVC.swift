@@ -21,16 +21,13 @@ class InitialVC: UIViewController {
         tlnn.targetOutput = [0.01,0.99]
         tlnn.bias = [0.35,0.6]
         tlnn.learningRate = 0.5
- 
-        print("O1,O2",tlnn.forwardPass)
-        print("New weights", tlnn.updateWeights())
-
-   
         
-        print ("Control: [0.149780716132763, 0.199561432265526, 0.24975114363237, 0.299502287264739, 0.358916479717885, 0.408666186076233, 0.511301270238738, 0.561370121107989]")
+        for (var i = 0; i<10000; i++) {
+            tlnn.updateWeights()
+        }
         
         print("O1,O2",tlnn.forwardPass)
-        print("New weights", tlnn.updateWeights())
+        
     }
 
 

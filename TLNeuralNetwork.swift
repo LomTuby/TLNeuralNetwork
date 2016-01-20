@@ -103,6 +103,11 @@ class TLNeuralNetwork: NSObject {
         return self.weight
     }
     
+    // Backward pass for the error function
+    private func mseBackwardPass(ptrOutput: Int) -> Double {
+        return -(targetOutput[ptrOutput] - forwardPass[ptrOutput])
+    }
+    
     // Backward pass
     var backwardPass: [Double] {
         
@@ -112,7 +117,6 @@ class TLNeuralNetwork: NSObject {
             
             var dEn_dOn = [Double]()
             var dOn = [[Double]]()
-            var dHn = [[Double]]()
             
             /* Output weights
             
@@ -126,7 +130,7 @@ class TLNeuralNetwork: NSObject {
             for ptrOutput in 0..<forwardPass.count {
                 
                 // Sensitivity of error to output
-                dEn_dOn.append(-(targetOutput[ptrOutput] - forwardPass[ptrOutput]))
+                dEn_dOn.append(mseBackwardPass(ptrOutput))
                 
                 // Sensitivity of output to inputs and weights
                 dOn.append(self.neuronOutput[ptrOutput].backwardPass)
@@ -157,14 +161,15 @@ class TLNeuralNetwork: NSObject {
             
             for ptrHidden in 0..<self.numHidden  {
               
-                dHn.append(self.neuronHidden[ptrHidden].backwardPass)
+                var dHn = self.neuronHidden[ptrHidden].backwardPass
                 
+                // self.numInouts number of weights for each hidden neuron
                 for ptrInputWeight in 0..<(self.numInputs) {
                     
                     var eTotal = 0.0
                     for ptrOutput in 0..<forwardPass.count {
                         
-                        eTotal += dEn_dOn[ptrOutput] * dOn[ptrOutput][ptrHidden] * dHn[ptrHidden][self.numHidden+ptrInputWeight]
+                        eTotal += dEn_dOn[ptrOutput] * dOn[ptrOutput][ptrHidden] * dHn[self.numHidden+ptrInputWeight]
                     }
                     
                     output.append(eTotal)
@@ -178,21 +183,6 @@ class TLNeuralNetwork: NSObject {
         
     }
     
-    // Calculate mean squared error for each output and return the sum
-    var msError: [Double] {
-        
-        get {
-            let forwardPass = self.forwardPass
-            var errorTotal = [Double]()
-            
-            for ptrOutput in 0..<forwardPass.count {
-                errorTotal.append(0.5 * pow((self.targetOutput[ptrOutput]-forwardPass[ptrOutput]),2))
-                
-            }
-            
-            return errorTotal
-        }
-    }
     
     
 }

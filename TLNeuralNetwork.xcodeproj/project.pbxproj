@@ -14,7 +14,18 @@
 		E2B24E041C38C43E00AAD090 /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B24E011C38C43E00AAD090 /* InitialVC.swift */; };
 		E2B24E051C38C43E00AAD090 /* TLNeuralNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B24E021C38C43E00AAD090 /* TLNeuralNetwork.swift */; };
 		E2B24E061C38C43E00AAD090 /* Neuron.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B24E031C38C43E00AAD090 /* Neuron.swift */; };
+		E2DD339F1C4FCDDD00C1F647 /* TLNeuralNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DD339E1C4FCDDD00C1F647 /* TLNeuralNetworkTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E2DD33A11C4FCDDD00C1F647 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2B24DE41C38C42800AAD090 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2B24DEB1C38C42800AAD090;
+			remoteInfo = TLNeuralNetwork;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		E2B24DEC1C38C42800AAD090 /* TLNeuralNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLNeuralNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,10 +37,20 @@
 		E2B24E011C38C43E00AAD090 /* InitialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitialVC.swift; path = ../InitialVC.swift; sourceTree = "<group>"; };
 		E2B24E021C38C43E00AAD090 /* TLNeuralNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TLNeuralNetwork.swift; path = ../TLNeuralNetwork.swift; sourceTree = "<group>"; };
 		E2B24E031C38C43E00AAD090 /* Neuron.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Neuron.swift; path = ../Neuron.swift; sourceTree = "<group>"; };
+		E2DD339C1C4FCDDD00C1F647 /* TLNeuralNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TLNeuralNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2DD339E1C4FCDDD00C1F647 /* TLNeuralNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLNeuralNetworkTests.swift; sourceTree = "<group>"; };
+		E2DD33A01C4FCDDD00C1F647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E2B24DE91C38C42800AAD090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2DD33991C4FCDDD00C1F647 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				E2B24DEE1C38C42800AAD090 /* TLNeuralNetwork */,
+				E2DD339D1C4FCDDD00C1F647 /* TLNeuralNetworkTests */,
 				E2B24DED1C38C42800AAD090 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				E2B24DEC1C38C42800AAD090 /* TLNeuralNetwork.app */,
+				E2DD339C1C4FCDDD00C1F647 /* TLNeuralNetworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,6 +91,15 @@
 				E2B24DFB1C38C42900AAD090 /* Info.plist */,
 			);
 			path = TLNeuralNetwork;
+			sourceTree = "<group>";
+		};
+		E2DD339D1C4FCDDD00C1F647 /* TLNeuralNetworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				E2DD339E1C4FCDDD00C1F647 /* TLNeuralNetworkTests.swift */,
+				E2DD33A01C4FCDDD00C1F647 /* Info.plist */,
+			);
+			path = TLNeuralNetworkTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +122,24 @@
 			productReference = E2B24DEC1C38C42800AAD090 /* TLNeuralNetwork.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E2DD339B1C4FCDDD00C1F647 /* TLNeuralNetworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2DD33A31C4FCDDD00C1F647 /* Build configuration list for PBXNativeTarget "TLNeuralNetworkTests" */;
+			buildPhases = (
+				E2DD33981C4FCDDD00C1F647 /* Sources */,
+				E2DD33991C4FCDDD00C1F647 /* Frameworks */,
+				E2DD339A1C4FCDDD00C1F647 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2DD33A21C4FCDDD00C1F647 /* PBXTargetDependency */,
+			);
+			name = TLNeuralNetworkTests;
+			productName = TLNeuralNetworkTests;
+			productReference = E2DD339C1C4FCDDD00C1F647 /* TLNeuralNetworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -102,6 +152,10 @@
 				TargetAttributes = {
 					E2B24DEB1C38C42800AAD090 = {
 						CreatedOnToolsVersion = 7.2;
+					};
+					E2DD339B1C4FCDDD00C1F647 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = E2B24DEB1C38C42800AAD090;
 					};
 				};
 			};
@@ -119,6 +173,7 @@
 			projectRoot = "";
 			targets = (
 				E2B24DEB1C38C42800AAD090 /* TLNeuralNetwork */,
+				E2DD339B1C4FCDDD00C1F647 /* TLNeuralNetworkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -131,6 +186,13 @@
 				E2B24DFA1C38C42900AAD090 /* LaunchScreen.storyboard in Resources */,
 				E2B24DF71C38C42800AAD090 /* Assets.xcassets in Resources */,
 				E2B24DF51C38C42800AAD090 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2DD339A1C4FCDDD00C1F647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +210,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E2DD33981C4FCDDD00C1F647 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2DD339F1C4FCDDD00C1F647 /* TLNeuralNetworkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E2DD33A21C4FCDDD00C1F647 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E2B24DEB1C38C42800AAD090 /* TLNeuralNetwork */;
+			targetProxy = E2DD33A11C4FCDDD00C1F647 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E2B24DF31C38C42800AAD090 /* Main.storyboard */ = {
@@ -257,6 +335,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = TLNeuralNetwork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Luby.TLNeuralNetwork;
@@ -268,10 +347,35 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = TLNeuralNetwork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Luby.TLNeuralNetwork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E2DD33A41C4FCDDD00C1F647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TLNeuralNetworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Luby.TLNeuralNetworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TLNeuralNetwork.app/TLNeuralNetwork";
+			};
+			name = Debug;
+		};
+		E2DD33A51C4FCDDD00C1F647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TLNeuralNetworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Luby.TLNeuralNetworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TLNeuralNetwork.app/TLNeuralNetwork";
 			};
 			name = Release;
 		};
@@ -292,6 +396,15 @@
 			buildConfigurations = (
 				E2B24DFF1C38C42900AAD090 /* Debug */,
 				E2B24E001C38C42900AAD090 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2DD33A31C4FCDDD00C1F647 /* Build configuration list for PBXNativeTarget "TLNeuralNetworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2DD33A41C4FCDDD00C1F647 /* Debug */,
+				E2DD33A51C4FCDDD00C1F647 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

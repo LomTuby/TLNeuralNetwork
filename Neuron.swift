@@ -19,9 +19,7 @@ class Neuron: NSObject {
     private var mult = [Mult]()
     private var add = Add()
     private var activation = Sigmoid()
-    override init() {
-        
-    }
+
     // Initialiser
     init(numInputs: Int) {
         // Number of multiply blocks depends on the number of inputs
