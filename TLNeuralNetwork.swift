@@ -38,7 +38,7 @@ public class TLNeuralNetwork: NSObject {
     
     var weight: [Double] {
         set {
-            let numWeights = (self.numLayers * self.numHidden * self.numOutputs)
+            let numWeights = (self.numInputs * self.numHidden + self.numHidden * self.numOutputs)
             
             if numWeights > newValue.count {
                 print("TLNeuralNetwork: Warning weight has " + String(numWeights) + " weights specified but only " + String(newValue.count) + " set. Setting remaining to zero")
@@ -141,7 +141,7 @@ public class TLNeuralNetwork: NSObject {
         
         // Set defaults
         self.input = [Double](count: numInputs, repeatedValue: 0.0)
-        self.weight = [Double](count: (self.numLayers * self.numHidden * self.numOutputs), repeatedValue: 0.0)
+        self.weight = [Double](count:  (self.numInputs * self.numHidden + self.numHidden * self.numOutputs), repeatedValue: 0.0)
         self.bias = [1.0,1.0]
         
     }
