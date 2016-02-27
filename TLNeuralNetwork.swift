@@ -8,12 +8,112 @@
 
 import Foundation
 
-class TLNeuralNetwork: NSObject {
+public class TLNeuralNetwork: NSObject {
     
-    var input = [Double]()
-    var weight = [Double]()
-    var bias = [Double]()
-    var targetOutput = [Double]()
+    private let numLayers = 2
+    
+    var input: [Double] {
+        set {
+            if self.numInputs > newValue.count {
+                print("TLNeuralNetwork: Warning input has " + String(self.numInputs) + " inputs specified but only " + String(newValue.count) + " set. Setting remaining to zero")
+                
+                var userRequestedInput = newValue
+                // Pad with zeros
+                userRequestedInput += [Double](count: (self.numInputs - newValue.count), repeatedValue: 0.0)
+                self._input = userRequestedInput
+                
+            } else if self.numInputs < newValue.count {
+                print("TLNeuralNetwork: Warning input has " + String(self.numInputs) + " inputs specified but " + String(newValue.count) + " set. Will ignore the last " + String(newValue.count - self.numInputs))
+          
+                var userRequestedInput = newValue
+                self._input = Array(userRequestedInput[0..<self.numInputs])
+            } else {
+                self._input = newValue
+            }
+        }
+        get {
+            return _input
+        }
+    }
+    
+    var weight: [Double] {
+        set {
+            let numWeights = (self.numLayers * self.numHidden * self.numOutputs)
+            
+            if numWeights > newValue.count {
+                print("TLNeuralNetwork: Warning weight has " + String(numWeights) + " weights specified but only " + String(newValue.count) + " set. Setting remaining to zero")
+                
+                var userRequestedInput = newValue
+                // Pad with zeros
+                userRequestedInput += [Double](count: (numWeights - newValue.count), repeatedValue: 0.0)
+                self._weight = userRequestedInput
+                
+            } else if numWeights < newValue.count {
+                print("TLNeuralNetwork: Warning weight has " + String(numWeights) + " weights specified but " + String(newValue.count) + " set. Will ignore the last " + String(newValue.count - numWeights))
+                
+                var userRequestedInput = newValue
+                self._weight = Array(userRequestedInput[0..<numWeights])
+            } else {
+                self._weight = newValue
+            }
+        }
+        get {
+            return _weight
+        }
+    }
+    
+    var bias: [Double] {
+        set {
+            if self.numLayers > newValue.count {
+                print("TLNeuralNetwork: Warning bias has " + String(self.numLayers) + " biases expected but only " + String(newValue.count) + " set. Setting remaining to 1.0")
+                
+                var userRequestedInput = newValue
+                // Pad with 1.0
+                userRequestedInput += [Double](count: (self.numLayers - newValue.count), repeatedValue: 1.0)
+                self._bias = userRequestedInput
+                
+            } else if self.numLayers < newValue.count {
+                print("TLNeuralNetwork: Warning bias has " + String(self.numLayers) + " biases expected but " + String(newValue.count) + " set. Will ignore the last " + String(newValue.count - self.numLayers))
+                
+                var userRequestedInput = newValue
+                self._bias = Array(userRequestedInput[0..<self.numLayers])
+            } else {
+                self._bias = newValue
+            }
+        }
+        get {
+            return _bias
+        }
+    }
+    
+    var targetOutput: [Double] {
+        set {
+            if self.numOutputs > newValue.count {
+                print("TLNeuralNetwork: Warning targetOutput has " + String(self.numOutputs) + " inputs specified but only " + String(newValue.count) + " set. Setting remaining to zero")
+                
+                var userRequestedInput = newValue
+                // Pad with zeros
+                userRequestedInput += [Double](count: (self.numOutputs - newValue.count), repeatedValue: 0.0)
+                self._targetOutput = userRequestedInput
+                
+            } else if self.numOutputs < newValue.count {
+                print("TLNeuralNetwork: Warning targetOutput has " + String(self.numOutputs) + " inputs specified but " + String(newValue.count) + " set. Will ignore the last " + String(newValue.count - self.numOutputs))
+                
+                var userRequestedInput = newValue
+                self._targetOutput = Array(userRequestedInput[0..<self.numOutputs])
+            } else {
+                self._targetOutput = newValue
+            }
+        }
+        get {
+            return _targetOutput
+        }
+    }
+    
+    private var _input = [Double]()
+    private var _weight = [Double]()
+    private var _bias = [Double]()
+    private var _targetOutput = [Double]()
     var learningRate = 0.5
     
     // Neurons
@@ -26,6 +126,8 @@ class TLNeuralNetwork: NSObject {
     private var numOutputs = 0
     
     init(numInputs: Int, numHidden: Int, numOutputs: Int) {
+        super.init()
+        
         // Number of input neurons depend on the number of inputs
         self.numInputs = numInputs
         self.numHidden = numHidden
@@ -36,6 +138,12 @@ class TLNeuralNetwork: NSObject {
         
         self.neuronHidden = neuronHiddenArray
         self.neuronOutput = neuronOutputArray
+        
+        // Set defaults
+        self.input = [Double](count: numInputs, repeatedValue: 0.0)
+        self.weight = [Double](count: (self.numLayers * self.numHidden * self.numOutputs), repeatedValue: 0.0)
+        self.bias = [1.0,1.0]
+        
     }
     
     // Forward pass
@@ -46,12 +154,12 @@ class TLNeuralNetwork: NSObject {
             var output = [Double]()
             var hidden = [Double]()
             
+            // All inputs go to all hidden neurons
+            let inputStartIndex = 0
+            let inputEndIndex = self.numInputs - 1
+            
             // Loop through each hidden neuron
             for ptrNeuronHidden in 0..<self.numHidden {
-                
-                // All inputs go to all hidden neurons
-                let inputStartIndex = 0
-                let inputEndIndex = self.numInputs - 1
                 
                 // Map the correct weights to the hidden neurons
                 let weightStartIndex = ptrNeuronHidden * self.numInputs
@@ -95,9 +203,9 @@ class TLNeuralNetwork: NSObject {
         
         var backwardPass = self.backwardPass
         
-        for (index,weight) in self.weight.enumerate() {
+        for index in 0..<self.weight.count {
             
-            self.weight[index] = weight - self.learningRate * backwardPass[index]
+            self.weight[index] -= self.learningRate * backwardPass[index]
         }
         
         return self.weight
@@ -127,6 +235,7 @@ class TLNeuralNetwork: NSObject {
             let dE2_dW7 = dE2_dO2 * dO2_dW7
             let dE2_dW8 = dE2_dO2 * dO2_dW8
             */
+            
             for ptrOutput in 0..<forwardPass.count {
                 
                 // Sensitivity of error to output
@@ -141,8 +250,6 @@ class TLNeuralNetwork: NSObject {
                 }
             }
             
-
-            
             /* Input weights
             
             eg for a 2 input 2 hidden network:
@@ -155,7 +262,6 @@ class TLNeuralNetwork: NSObject {
             let dE2_dW3 = dE2_dO2 * dO2_dH2 * dH2_dW3
             let dE1_dW4 = dE1_dO1 * dO1_dH2 * dH2_dW4
             let dE2_dW4 = dE2_dO2 * dO2_dH2 * dH2_dW4
-
             */
             
             

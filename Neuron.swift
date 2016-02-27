@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Neuron: NSObject {
+public class Neuron: NSObject {
     
     // Inputs
     var input = [Double]()
@@ -117,6 +117,7 @@ class Neuron: NSObject {
         
     }
     
+    // Activation
     class Sigmoid: NSObject {
         
         // Input
